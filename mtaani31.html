@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mtaani Soccer #31 - TV 100%</title>
+<style>
+  body{margin:0;background:#111;overflow:hidden}
+  canvas{display:block;margin:auto;background:#2a8a2a}
+  #top{position:absolute;top:0;width:100%;height:40px;background:#0f172a;color:white;display:flex;justify-content:space-between;align-items:center;padding:0 10px;font-family:Arial;font-weight:bold}
+</style>
+</head>
+<body>
+<div id="top">
+  <span>PRM 0-0 RAF</span>
+  <span>00:36</span>
+  <span>FTG</span>
+</div>
+<canvas id="pitch" width="720" height="1280"></canvas>
+<script>
+const c = document.getElementById('pitch');
+const ctx = c.getContext('2d');
+
+// CARPET THE SAME - stripes premium, sio circles
+function drawCarpet(){
+  // straight stripes light/dark green
+  for(let i=0;i<20;i++){
+    ctx.fillStyle = i%2==0 ? '#3cb043' : '#2e8b3a';
+    ctx.fillRect(0, i*64, 720, 64);
+  }
+  // lines
+  ctx.strokeStyle='white'; ctx.lineWidth=3;
+  ctx.strokeRect(40,80,640,1120);
+  ctx.beginPath(); ctx.moveTo(40,640); ctx.lineTo(680,640); ctx.stroke();
+  ctx.beginPath(); ctx.arc(360,640
