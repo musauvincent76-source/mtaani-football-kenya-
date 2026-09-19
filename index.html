@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-html,body{width:100%;height:100%;overflow:hidden;background:#020d06;font-family:Arial}
+html,body{width:100%;height:100%;overflow:hidden;background:#020d06}
 #rotated{
 width:100vh;height:100vw;
 transform:rotate(90deg);
@@ -13,42 +13,33 @@ position:absolute;top:0;left:100vw;
 background:#020d06;display:flex;flex-direction:column;
 }
 .top{height:12%;background:#010a0f;border-bottom:2px solid #00ff88;display:flex;justify-content:space-between;align-items:center;padding:0 12px}
-.back{background:#00ff88;color:#000;padding:7px 16px;border-radius:6px;font-weight:900;text-decoration:none;font-size:12px;cursor:pointer;border:none}
+.back{background:#00ff88;color:#000;padding:7px 16px;border-radius:6px;font-weight:900;text-decoration:none;font-size:12px;cursor:pointer}
 .wrap{flex:1;background:#061a2a;padding:8px;display:flex;flex-direction:column;gap:8px}
-.header{border:1.5px solid #00ff88;border-radius:10px;padding:12px;display:flex;justify-content:space-between;align-items:center;background:linear-gradient(90deg,#0a2212,#0a1a2a)}
-.boxes{flex:1;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr 1fr;gap:8px}
-.card{border:1.6px solid #00ff88;border-radius:10px;background:#0a1a2a;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:5px;cursor:pointer}
-.card:active{transform:scale(0.97)}
-.card b{color:#00ff88;font-size:12px}
-.card small{color:#aaa;font-size:10px}
+.boxes{flex:1;display:grid;grid-template-columns:1fr 2fr 2fr;grid-template-rows:1fr 1fr;gap:8px}
+.card{border:1.8px solid #00ff88;border-radius:10px;overflow:hidden;background:#0a1a2a;display:flex;flex-direction:column}
+.card .head{padding:6px 10px;font-weight:900;font-size:11px;background:#cc0033;color:#fff}
+.card .body{flex:1;display:flex;align-items:center;justify-content:center;color:#00ff88;font-weight:900;font-size:13px;background:rgba(0,255,136,0.05)}
+.small{grid-row:span 2}
 </style>
 </head>
 <body>
 <div id="rotated">
 
 <div class="top">
-<a class="back" href="index.html?v=31">← RUDI</a>
+<a class="back" href="index.html?v=99">← RUDI MENU</a>
 <b style="color:#00ff88;font-size:12px">CAREER MATCH - NDANI</b>
-<div style="border:1px solid #00ff88;padding:4px 8px;border-radius:5px;font-size:10px;background:#0a1a2a">💎 132 | 🪙 358</div>
+<div style="border:1px solid #00ff88;padding:4px 8px;border-radius:5px;font-size:10px;background:#0a1a2a;color:#fff">💎 132 | 🪙 358</div>
 </div>
 
 <div class="wrap">
-  <div class="header">
-    <div>
-      <h3 style="color:#00ff88;font-size:13px">HAPA NDIO CAREER ITAKUWA</h3>
-      <small style="color:#aaa;font-size:10px">Hapa ndio tutaweka mechi, league, fixtures zote</small>
-    </div>
-    <div style="background:#00ff88;color:#000;padding:7px 12px;border-radius:6px;font-weight:900;font-size:10px">START SEASON ▶</div>
-  </div>
-
-  <div class="boxes">
-    <div class="card" onclick="alert('Tutaweka FIXTURES hapa')"><b>📅 FIXTURES</b><small>Mechi zote 10</small></div>
-    <div class="card" onclick="alert('Tutaweka TABLE hapa')"><b>📊 TABLE</b><small>Msimamo wa ligi</small></div>
-    <div class="card" onclick="alert('Tutaweka TEAM hapa')"><b>👥 MY TEAM</b><small>Wachezaji wako</small></div>
-    <div class="card" onclick="alert('Tutaweka RESULTS hapa')"><b>🏆 RESULTS</b><small>Matokeo ya jana</small></div>
-    <div class="card" onclick="alert('Tutaweka STATS hapa')"><b>📈 STATS</b><small>Magoli / Assists</small></div>
-    <div class="card" style="border-color:#ff6600" onclick="alert('Tutaweka PLAY MATCH hapa')"><b style="color:#ff6600">⚽ CHEZA MECHI</b><small style="color:#ffcc00"> vs Wazee wa Mtaa</small></div>
-  </div>
+<div class="boxes">
+  <!-- BOXING ZAKO NDANI YA CAREER -->
+  <div class="card small"><div class="head">STATS</div><div class="body">KADOGO</div></div>
+  <div class="card"><div class="head" style="background:#0055ff">FIXTURES »</div><div class="body">KUBWA 1</div></div>
+  <div class="card"><div class="head" style="background:#ff6600">TABLE »</div><div class="body">KUBWA 2</div></div>
+  <div class="card"><div class="head" style="background:#0a4d1a">SCENARIO »</div><div class="body">KUBWA 3</div></div>
+  <div class="card"><div class="head" style="background:#6600cc">CHALLENGES »</div><div class="body">KUBWA 4</div></div>
+</div>
 </div>
 
 </div>
