@@ -5,22 +5,34 @@
 <title>MTAANI #31</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-html,body{height:100vh;width:100vw;overflow:hidden;background:#020d06;color:#fff;font-family:Arial, sans-serif}
-body{display:flex;flex-direction:column}
+html,body{width:100%;height:100%;overflow:hidden;background:#020d06}
 
-.top{height:11vh;min-height:38px;max-height:50px;background:#010a0f;border-bottom:2px solid #00ff88;display:flex;justify-content:space-between;align-items:center;padding:0 8px}
-.left{display:flex;gap:5px;align-items:center}
-.free{background:#00ff88;color:#000;padding:4px 8px;border-radius:4px;font-weight:900;font-size:8px}
-.title{border:2px solid #00ff88;padding:3px 14px;background:#111;font-weight:900;font-size:12px;transform:skew(-12deg)}
-.title span{display:block;transform:skew(12deg)}
-.coins{display:flex;gap:4px}
-.coins div{border:1px solid #00ff88;padding:3px 6px;border-radius:4px;font-size:8px;background:#0a1a2a;font-weight:700}
+/* HII NDIO SIRI YA PERMANENT ROTATE */
+#rotated{
+width:100vh;
+height:100vw;
+transform:rotate(90deg);
+transform-origin:0 0;
+position:absolute;
+top:0;
+left:100vw;
+margin-left:0;
+background:#020d06;
+display:flex;
+flex-direction:column;
+}
 
-/* HAPA NDIO SIRI - 5 COLUMNS x 2 ROWS = 10 BOXES ZOTE KWA SCREEN MOJA */
-.wrap{height:89vh;display:grid;grid-template-columns:repeat(5, 1fr);grid-template-rows:1fr 1fr;gap:4px;padding:4px;background:#061a2a}
+.top{height:11%;min-height:45px;background:#010a0f;border-bottom:2px solid #00ff88;display:flex;justify-content:space-between;align-items:center;padding:0 10px}
+.free{background:#00ff88;color:#000;padding:5px 10px;border-radius:4px;font-weight:900;font-size:10px}
+.title{border:2px solid #00ff88;padding:4px 18px;background:#111;font-weight:900;font-size:14px;transform:skew(-12deg)}
+.title span{display:block;transform:skew(12deg);color:#fff}
+.coins{display:flex;gap:5px}
+.coins div{border:1px solid #00ff88;padding:4px 8px;border-radius:5px;font-size:10px;background:#0a1a2a;color:#fff;font-weight:700}
 
-.card{border:1.5px solid #00ff88;border-radius:6px;overflow:hidden;background:#0a1a2a;display:flex;flex-direction:column}
-.head{padding:4px 6px;font-weight:900;font-size:8px;display:flex;justify-content:space-between;align-items:center;flex-shrink:0}
+.wrap{flex:1;display:grid;grid-template-columns:repeat(5, 1fr);grid-template-rows:1fr 1fr;gap:5px;padding:5px;background:#061a2a}
+
+.card{border:1.8px solid #00ff88;border-radius:8px;overflow:hidden;background:#0a1a2a;display:flex;flex-direction:column}
+.head{padding:6px 8px;font-weight:900;font-size:10px;display:flex;justify-content:space-between;flex-shrink:0;color:#fff}
 .head.red{background:#cc0033}
 .head.blue{background:#0055ff}
 .head.orange{background:#ff6600}
@@ -29,19 +41,14 @@ body{display:flex;flex-direction:column}
 .head.green{background:#0a4d1a}
 .head.purple{background:#6600cc}
 .body{flex:1;background:rgba(0,255,136,0.04)}
-
-/* Kama simu imesimama portrait - mwambie a-rotate */
-@media (orientation: portrait){
-.wrap{display:none}
-.top{display:none}
-body::after{content:"↻ ROTATE SIMU IWE LANDSCAPE NDIO UONE BOX 10 ZOTE";position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:#020d06;color:#00ff88;font-weight:900;font-size:16px;text-align:center;padding:20px}
-}
 </style>
 </head>
 <body>
 
+<div id="rotated">
+
 <div class="top">
-<div class="left">
+<div style="display:flex;gap:6px;align-items:center">
 <div class="free">FREE COINS</div>
 <div class="title"><span>MTAANI #31</span></div>
 </div>
@@ -53,22 +60,20 @@ body::after{content:"↻ ROTATE SIMU IWE LANDSCAPE NDIO UONE BOX 10 ZOTE";positi
 </div>
 
 <div class="wrap">
+<div class="card"><div class="head red">CAREER »</div><div class="body"></div></div>
+<div class="card"><div class="head blue">SCENARIO »</div><div class="body"></div></div>
+<div class="card"><div class="head orange">OSMALIPA DRAFT »</div><div class="body"></div></div>
+<div class="card"><div class="head lblue">MTAANI LIVE »</div><div class="body"></div></div>
+<div class="card"><div class="head black">CLANS »</div><div class="body"></div></div>
 
-<!-- ROW 1 - BOX 5 JUU -->
-<div class="card"><div class="head red">CAREER <span>»</span></div><div class="body"></div></div>
-<div class="card"><div class="head blue">SCENARIO <span>»</span></div><div class="body"></div></div>
-<div class="card"><div class="head orange">OSMALIPA DRAFT <span>»</span></div><div class="body"></div></div>
-<div class="card"><div class="head lblue">MTAANI LIVE <span>»</span></div><div class="body"></div></div>
-<div class="card"><div class="head black">CLANS <span>»</span></div><div class="body"></div></div>
-
-<!-- ROW 2 - BOX 5 CHINI -->
-<div class="card"><div class="head green">DLL EVENT <span>»</span></div><div class="body"></div></div>
-<div class="card"><div class="head red">CHALLENGES <span>»</span></div><div class="body"></div></div>
-<div class="card"><div class="head blue">TEAM <span>»</span></div><div class="body"></div></div>
-<div class="card"><div class="head orange">TRANSFERS <span>»</span></div><div class="body"></div></div>
-<div class="card"><div class="head purple">MY CLUB <span>»</span></div><div class="body"></div></div>
+<div class="card"><div class="head green">DLL EVENT »</div><div class="body"></div></div>
+<div class="card"><div class="head red">CHALLENGES »</div><div class="body"></div></div>
+<div class="card"><div class="head blue">TEAM »</div><div class="body"></div></div>
+<div class="card"><div class="head orange">TRANSFERS »</div><div class="body"></div></div>
+<div class="card"><div class="head purple">MY CLUB »</div><div class="body"></div></div>
+</div>
 
 </div>
 
 </body>
-</html>
+                    </html>
