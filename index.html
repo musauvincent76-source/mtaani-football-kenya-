@@ -1,81 +1,43 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CAREER</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-html,body{width:100%;height:100%;overflow:hidden;background:#020d06}
-#rotated{width:100vh;height:100vw;transform:rotate(90deg);transform-origin:0 0;position:absolute;top:0;left:100vw;background:#020d06;display:flex;flex-direction:column;}
-.top{height:12%;background:#010a0f;border-bottom:2px solid #00ff88;display:flex;align-items:center;justify-content:space-between;padding:0 12px;z-index:99}
-.back{ background:#00ff88; color:#000; padding:8px 18px; border-radius:6px; font-weight:900; font-size:13px; cursor:pointer; border:none; }
-.wrap{flex:1;padding:8px;background:#061a2a;display:flex;flex-direction:column;gap:8px}
-.header-info{height:22%;border:1.5px solid #00ff88;border-radius:10px;background:linear-gradient(90deg,#0a2212,#0a1a2a);display:flex;align-items:center;justify-content:space-between;padding:0 15px;}
-.boxes{flex:1;display:grid;grid-template-columns:1fr 2fr 2fr;grid-template-rows:1fr 1fr;gap:8px}
-.card{border:1.8px solid #00ff88;border-radius:10px;overflow:hidden;background:#0a1a2a;display:flex;flex-direction:column;cursor:pointer}
-.card .head{padding:6px 10px;font-weight:900;font-size:11px;background:#cc0033;color:#fff}
-.card .body{flex:1;display:flex;align-items:center;justify-content:center;color:#00ff88;font-weight:900;font-size:14px;background:rgba(0,255,136,0.05)}
-.small{grid-row:span 2}
-
-/* PAGE YA NDANI YA CAREER */
-#inside{position:absolute;top:0;left:0;width:100%;height:100%;background:#020d06;z-index:100;display:none;flex-direction:column;}
+body{background:#020d06;color:#fff;font-family:Arial;min-height:100vh;display:flex;flex-direction:column}
+.top{height:60px;background:#010a0f;border-bottom:2px solid #00ff88;display:flex;align-items:center;justify-content:space-between;padding:0 12px}
+.back{ background:#00ff88; color:#000; padding:10px 20px; border-radius:6px; font-weight:900; font-size:14px; cursor:pointer; border:none; text-decoration:none; display:inline-block; }
+.wrap{flex:1;padding:10px;background:#061a2a;display:flex;flex-direction:column;gap:10px}
+.boxes{flex:1;display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+.card{border:2px solid #00ff88;border-radius:10px;background:#0a1a2a;padding:20px;text-align:center;cursor:pointer}
 </style>
 </head>
 <body>
-<div id="rotated">
 
 <div class="top">
-<button class="back" id="btnRudiMenu">← RUDI MENU</button>
-<div style="display:flex;gap:8px;align-items:center"><div style="width:30px;height:30px;background:#00ff88;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#000;font-weight:900">M</div><b style="color:#00ff88;font-size:12px">CAREER MATCHES</b></div>
-<div style="border:1px solid #00ff88;padding:4px 8px;border-radius:5px;font-size:10px;background:#0a1a2a;color:#fff">💎 132 | 🪙 358</div>
+<!-- BUTTON 2 KWA PAMOJA - MOJA LAZIMA IFANYE -->
+<a href="index.html" class="back">← RUDI MENU</a>
+<b style="color:#00ff88">CAREER MATCHES</b>
+<div>💎 132</div>
 </div>
 
-<div class="wrap" id="mainPage">
-<div class="header-info">
-<div><h2 style="color:#00ff88;font-size:13px">⚽ SEASON 1</h2><p style="color:#aaa;font-size:9px">Cheza ligi kama DLS</p></div>
-<div style="background:#00ff88;color:#000;padding:8px 14px;border-radius:6px;font-weight:900;font-size:11px">START ▶</div>
+<div class="wrap">
+<div style="border:1.5px solid #00ff88;border-radius:10px;padding:15px;display:flex;justify-content:space-between;align-items:center">
+<div><h3 style="color:#00ff88">SEASON 1</h3><small style="color:#aaa">Kama DLS</small></div>
+<div style="background:#00ff88;color:#000;padding:8px 14px;border-radius:6px;font-weight:900">START ▶</div>
 </div>
 
 <div class="boxes">
-<div class="card small" onclick="openInside('STATS')"><div class="head">STATS</div><div class="body" style="font-size:11px">KADOGO</div></div>
-<div class="card" onclick="openInside('FIXTURES')"><div class="head" style="background:#0055ff">FIXTURES »</div><div class="body">KUBWA 1</div></div>
-<div class="card" onclick="openInside('TABLE')"><div class="head" style="background:#ff6600">TABLE »</div><div class="body">KUBWA 2</div></div>
-<div class="card" onclick="openInside('SCENARIO')"><div class="head" style="background:#0a4d1a">SCENARIO »</div><div class="body">KUBWA 3</div></div>
-<div class="card" onclick="openInside('CHALLENGES')"><div class="head" style="background:#6600cc">CHALLENGES »</div><div class="body">KUBWA 4</div></div>
+<div class="card" onclick="openInside('FIXTURES')"><b>FIXTURES</b><br><small>KUBWA 1</small></div>
+<div class="card" onclick="openInside('TABLE')"><b>TABLE</b><br><small>KUBWA 2</small></div>
+<div class="card" onclick="openInside('SCENARIO')"><b>SCENARIO</b><br><small>KUBWA 3</small></div>
 </div>
-</div>
-
-<!-- HII NDIO NDANI UKIFINYA BOX -->
-<div id="inside">
-<div class="top">
-<button class="back" onclick="closeInside()">← RUDI CAREER</button>
-<b id="insideTitle" style="color:#00ff88">FIXTURES</b>
-<div style="color:#fff;font-size:10px">NDANI YA CAREER</div>
-</div>
-<div style="flex:1;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px">
-<h2 id="insideText" style="color:#00ff88">FIXTURES</h2>
-<p style="color:#aaa;font-size:12px">Hapa ndio mechi zitakuwa mkuu</p>
-</div>
-</div>
-
 </div>
 
 <script>
-// 1. RUDI MENU - HII NDIO ILIKUWA INAKATAA, SASA IMEFIXIWA
-document.getElementById('btnRudiMenu').addEventListener('click', function(){
-  window.location.replace('./index.html');
-});
-
-// 2. INGIA NDANI YA CAREER
 function openInside(name){
-  document.getElementById('insideTitle').innerText = name;
-  document.getElementById('insideText').innerText = name;
-  document.getElementById('inside').style.display = 'flex';
-}
-
-// 3. RUDI KUTOKA NDANI KURUDI CAREER
-function closeInside(){
-  document.getElementById('inside').style.display = 'none';
+ alert(name + " - hapa ndio tutaweka mechi mkuu");
 }
 </script>
 
