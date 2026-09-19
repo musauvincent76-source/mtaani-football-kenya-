@@ -2,12 +2,10 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>MTAANI #31</title>
+<title>MTAANI #31 - CAREER HUB</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{width:100%;height:100%;overflow:hidden;background:#020d06}
-
-/* HII NDIO SIRI YA PERMANENT ROTATE */
 #rotated{
 width:100vh;
 height:100vw;
@@ -16,20 +14,19 @@ transform-origin:0 0;
 position:absolute;
 top:0;
 left:100vw;
-margin-left:0;
 background:#020d06;
 display:flex;
 flex-direction:column;
 }
-
-.top{height:11%;min-height:45px;background:#010a0f;border-bottom:2px solid #00ff88;display:flex;justify-content:space-between;align-items:center;padding:0 10px}
+.top{height:11%;background:#010a0f;border-bottom:2px solid #00ff88;display:flex;justify-content:space-between;align-items:center;padding:0 10px}
 .free{background:#00ff88;color:#000;padding:5px 10px;border-radius:4px;font-weight:900;font-size:10px}
 .title{border:2px solid #00ff88;padding:4px 18px;background:#111;font-weight:900;font-size:14px;transform:skew(-12deg)}
 .title span{display:block;transform:skew(12deg);color:#fff}
 .coins{display:flex;gap:5px}
 .coins div{border:1px solid #00ff88;padding:4px 8px;border-radius:5px;font-size:10px;background:#0a1a2a;color:#fff;font-weight:700}
 
-.wrap{flex:1;display:grid;grid-template-columns:repeat(5, 1fr);grid-template-rows:1fr 1fr;gap:5px;padding:5px;background:#061a2a}
+/* GRID MPYA - 7 BOXES */
+.wrap{flex:1;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;grid-template-rows:1.5fr 1fr;gap:5px;padding:5px;background:#061a2a}
 
 .card{border:1.8px solid #00ff88;border-radius:8px;overflow:hidden;background:#0a1a2a;display:flex;flex-direction:column}
 .head{padding:6px 8px;font-weight:900;font-size:10px;display:flex;justify-content:space-between;flex-shrink:0;color:#fff}
@@ -40,7 +37,11 @@ flex-direction:column;
 .head.black{background:#222}
 .head.green{background:#0a4d1a}
 .head.purple{background:#6600cc}
+.head.combined{background:linear-gradient(90deg,#cc0033,#0055ff,#0a4d1a);font-size:11px}
 .body{flex:1;background:rgba(0,255,136,0.04)}
+
+/* Hii kubwa ya career hub */
+.big{grid-row:span 2}
 </style>
 </head>
 <body>
@@ -60,20 +61,25 @@ flex-direction:column;
 </div>
 
 <div class="wrap">
-<div class="card"><div class="head red">CAREER »</div><div class="body"></div></div>
-<div class="card"><div class="head blue">SCENARIO »</div><div class="body"></div></div>
+
+<!-- KITU KIMOJA KUBWA - IME-SHIKANISHA 4 -->
+<div class="card big">
+<div class="head combined">CAREER • SCENARIO • DLL EVENT • CHALLENGES »</div>
+<div class="body"></div>
+</div>
+
+<!-- ZINGINE 6 -->
 <div class="card"><div class="head orange">OSMALIPA DRAFT »</div><div class="body"></div></div>
 <div class="card"><div class="head lblue">MTAANI LIVE »</div><div class="body"></div></div>
 <div class="card"><div class="head black">CLANS »</div><div class="body"></div></div>
 
-<div class="card"><div class="head green">DLL EVENT »</div><div class="body"></div></div>
-<div class="card"><div class="head red">CHALLENGES »</div><div class="body"></div></div>
 <div class="card"><div class="head blue">TEAM »</div><div class="body"></div></div>
 <div class="card"><div class="head orange">TRANSFERS »</div><div class="body"></div></div>
 <div class="card"><div class="head purple">MY CLUB »</div><div class="body"></div></div>
+
 </div>
 
 </div>
 
 </body>
-                    </html>
+</html>
