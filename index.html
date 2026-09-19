@@ -2,77 +2,86 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>MTAANI #31</title>
+<title>CAREER MATCHES</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{width:100%;height:100%;overflow:hidden;background:#020d06}
 #rotated{
-width:100vh;
-height:100vw;
+width:100vh;height:100vw;
 transform:rotate(90deg);
 transform-origin:0 0;
-position:absolute;
-top:0;
-left:100vw;
-background:#020d06;
-display:flex;
-flex-direction:column;
+position:absolute;top:0;left:100vw;
+background:#020d06;display:flex;flex-direction:column;
 }
-.top{height:11%;background:#010a0f;border-bottom:2px solid #00ff88;display:flex;justify-content:space-between;align-items:center;padding:0 10px}
-.free{background:#00ff88;color:#000;padding:5px 10px;border-radius:4px;font-weight:900;font-size:10px}
-.title{border:2px solid #00ff88;padding:4px 18px;background:#111;font-weight:900;font-size:14px;transform:skew(-12deg)}
-.title span{display:block;transform:skew(12deg);color:#fff}
-.coins{display:flex;gap:5px}
-.coins div{border:1px solid #00ff88;padding:4px 8px;border-radius:5px;font-size:10px;background:#0a1a2a;color:#fff;font-weight:700}
-.wrap{flex:1;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;grid-template-rows:1.5fr 1fr;gap:5px;padding:5px;background:#061a2a}
-.card{border:1.8px solid #00ff88;border-radius:8px;overflow:hidden;background:#0a1a2a;display:flex;flex-direction:column}
-.head{padding:6px 8px;font-weight:900;font-size:11px;display:flex;justify-content:space-between;flex-shrink:0;color:#fff}
-.head.red{background:#cc0033}
-.head.blue{background:#0055ff}
-.head.orange{background:#ff6600}
-.head.lblue{background:#0099ff;color:#000}
-.head.black{background:#222}
-.head.green{background:#0a4d1a}
-.head.purple{background:#6600cc}
-.body{flex:1;background:rgba(0,255,136,0.04)}
-.big{grid-row:span 2}
+.top{height:12%;background:#010a0f;border-bottom:2px solid #00ff88;display:flex;align-items:center;justify-content:space-between;padding:0 12px}
+.back{background:#00ff88;color:#000;padding:6px 14px;border-radius:5px;font-weight:900;font-size:12px;text-decoration:none}
+.logo-box{display:flex;align-items:center;gap:10px}
+.logo{width:34px;height:34px;background:linear-gradient(135deg,#00ff88,#0055ff);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;color:#000}
+.logo-text b{color:#00ff88;font-size:13px;display:block}
+.logo-text small{color:#aaa;font-size:9px}
+.coins{display:flex;gap:6px}
+.coins div{border:1px solid #00ff88;padding:4px 8px;border-radius:5px;font-size:10px;background:#0a1a2a;color:#fff}
+
+.wrap{flex:1;padding:8px;background:#061a2a;display:flex;flex-direction:column;gap:8px}
+
+/* JUU - MAELEZO KAMA DLS */
+.header-info{
+height:22%;border:1.5px solid #00ff88;border-radius:10px;
+background:linear-gradient(90deg,#0a2212,#0a1a2a);
+display:flex;align-items:center;justify-content:space-between;padding:0 15px;
+}
+.header-info h2{color:#00ff88;font-size:14px}
+.header-info p{color:#aaa;font-size:10px;margin-top:4px}
+
+/* CHINI - BOX 5 */
+.boxes{flex:1;display:grid;grid-template-columns:1fr 2fr 2fr;grid-template-rows:1fr 1fr;gap:8px}
+
+.card{border:1.8px solid #00ff88;border-radius:10px;overflow:hidden;background:#0a1a2a;display:flex;flex-direction:column}
+.card .head{padding:6px 10px;font-weight:900;font-size:11px;background:#cc0033;color:#fff}
+.card .body{flex:1;display:flex;align-items:center;justify-content:center;color:#00ff88;font-weight:900;font-size:13px;background:rgba(0,255,136,0.05)}
+
+.small{grid-row:span 2}
+.big{font-size:14px}
 </style>
 </head>
 <body>
-
 <div id="rotated">
 
 <div class="top">
-<div style="display:flex;gap:6px;align-items:center">
-<div class="free">FREE COINS</div>
-<div class="title"><span>MTAANI #31</span></div>
+<a class="back" href="index.html">← RUDI</a>
+<div class="logo-box">
+<div class="logo">M</div>
+<div class="logo-text"><b>CAREER MATCHES</b><small>Kama DLS - Season Mode</small></div>
 </div>
-<div class="coins">
-<div>💎 132</div>
-<div>🪙 358</div>
-</div>
+<div class="coins"><div>💎 132</div><div>🪙 358</div></div>
 </div>
 
 <div class="wrap">
 
-<!-- HII NDIO ILIYOSHIKANISHWA - JINA MOJA TU -->
-<div class="card big">
-<div class="head red">CAREER MATCHES »</div>
-<div class="body"></div>
+<!-- JUU KAMA LOGO YA DLS INAVYO-ELEZEA -->
+<div class="header-info">
+<div>
+<h2>⚽ MTAANI CAREER SEASON 1</h2>
+<p>Cheza ligi, panda division, shinda trophy kama DLS</p>
+</div>
+<div style="background:#00ff88;color:#000;padding:8px 14px;border-radius:6px;font-weight:900;font-size:11px">START SEASON ▶</div>
 </div>
 
-<!-- ZINGINE 6 KAMA KAWAIADA -->
-<div class="card"><div class="head orange">OSMALIPA DRAFT »</div><div class="body"></div></div>
-<div class="card"><div class="head lblue">MTAANI LIVE »</div><div class="body"></div></div>
-<div class="card"><div class="head black">CLANS »</div><div class="body"></div></div>
+<!-- BOX 5 - YA KWANZA KADOGO ZINGINE KUBWA -->
+<div class="boxes">
+<div class="card small">
+<div class="head">STATS</div>
+<div class="body">KADOGO<br><small style="font-size:9px;color:#aaa">W-D-L</small></div>
+</div>
 
-<div class="card"><div class="head blue">TEAM »</div><div class="body"></div></div>
-<div class="card"><div class="head orange">TRANSFERS »</div><div class="body"></div></div>
-<div class="card"><div class="head purple">MY CLUB »</div><div class="body"></div></div>
+<div class="card big"><div class="head" style="background:#0055ff">FIXTURES »</div><div class="body">MECHI KUBWA 1</div></div>
+<div class="card big"><div class="head" style="background:#ff6600">TABLE »</div><div class="body">MECHI KUBWA 2</div></div>
 
+<div class="card big"><div class="head" style="background:#0a4d1a">SCENARIO »</div><div class="body">MECHI KUBWA 3</div></div>
+<div class="card big"><div class="head" style="background:#6600cc">CHALLENGES »</div><div class="body">MECHI KUBWA 4</div></div>
 </div>
 
 </div>
-
+</div>
 </body>
 </html>
