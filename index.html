@@ -1,34 +1,84 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mtaani Soccer #31 - TV 100%</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <style>
-  body{margin:0;background:#111;overflow:hidden}
-  canvas{display:block;margin:auto;background:#2a8a2a}
-  #top{position:absolute;top:0;width:100%;height:40px;background:#0f172a;color:white;display:flex;justify-content:space-between;align-items:center;padding:0 10px;font-family:Arial;font-weight:bold}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0f1a14;color:white;font-family:Arial;overflow:hidden}
+/* FIX YA ROTATE - HII NDIO MAMBO */
+#rotate-warning{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:#000;z-index:9999;justify-content:center;align-items:center;flex-direction:column;text-align:center}
+#rotate-warning h2{color:#2ecc71;font-size:28px}
+@media screen and (orientation:portrait){
+  #rotate-warning{display:flex}
+  #main-menu{display:none}
+}
+.top{background:#122e1c;padding:15px;border-bottom:3px solid #2ecc71;display:flex;justify-content:space-between;align-items:center}
+.top h1{color:#2ecc71;font-size:20px}
+.settings-btn{background:#1a3a26;border:1px solid #2ecc71;color:white;padding:8px 15px;border-radius:8px}
+.rooms{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:15px}
+.card{background:#1e3d2a;border:2px solid #2ecc71;border-radius:10px;padding:15px;text-align:center}
+.card.locked{opacity:0.4;border-color:#555}
+.card h2{color:#f1c40f}
+.btn-play{width:90%;margin:15px 5%;background:#2ecc71;color:#000;padding:15px;border:none;border-radius:25px;font-weight:bold;font-size:18px}
+.modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);z-index:100;justify-content:center;align-items:center}
+.modal-box{background:#1a3a26;border:2px solid #2ecc71;border-radius:12px;padding:20px;width:85%}
+.row{display:flex;justify-content:space-between;margin:12px 0}
 </style>
 </head>
 <body>
-<div id="top">
-  <span>PRM 0-0 RAF</span>
-  <span>00:36</span>
-  <span>FTG</span>
-</div>
-<canvas id="pitch" width="720" height="1280"></canvas>
-<script>
-const c = document.getElementById('pitch');
-const ctx = c.getContext('2d');
 
-// CARPET THE SAME - stripes premium, sio circles
-function drawCarpet(){
-  // straight stripes light/dark green
-  for(let i=0;i<20;i++){
-    ctx.fillStyle = i%2==0 ? '#3cb043' : '#2e8b3a';
-    ctx.fillRect(0, i*64, 720, 64);
+<!-- HII NDIO FIX YA ROTATE AUTO -->
+<div id="rotate-warning">
+<h2>🔄 GEUZA SIMU</h2>
+<p style="margin-top:10px">Geuza simu kando ndio ucheze vizuri</p>
+<p style="font-size:60px;margin-top:15px">📱➡️📱</p>
+</div>
+
+<div id="main-menu">
+<div class="top">
+<h1>MTAANI #31</h1>
+<button class="settings-btn" onclick="openSettings()">⚙️ SETTINGS</button>
+</div>
+
+<div style="padding:10px 15px;color:#aaa;font-size:13px">MENU FIRST - Eka kitu kwa kili!</div>
+
+<div class="rooms">
+<div class="card" onclick="play(15000)"><h2>15K</h2><small>Room 1 - Open</small></div>
+<div class="card" onclick="play(20000)"><h2>20K</h2><small>Room 2 - Open</small></div>
+<div class="card" onclick="play(40000)"><h2>40K</h2><small>Room 3 - Open</small></div>
+<div class="card locked"><h2>70K</h2><small>🔒 Shinda 5x</small></div>
+<div class="card locked"><h2>90K</h2><small>🔒 Shinda 10x</small></div>
+<div class="card locked"><h2>120K</h2><small>🔒 MASTAA</small></div>
+</div>
+
+<button class="btn-play" onclick="play(15000)">PLAY NOW - EKA HII!</button>
+<p style="text-align:center;color:#555;font-size:12px">Carpet THE SAME | TV Camera 100% | Dream League Style</p>
+</div>
+
+<!-- SETTINGS ZOTE NDANI -->
+<div id="settingsModal" class="modal" onclick="closeSettings()">
+<div class="modal-box" onclick="event.stopPropagation()">
+<h3 style="color:#2ecc71">SETTINGS - Kila Kitu</h3>
+<div class="row"><span>🔊 Sound</span><span><input type="checkbox" checked></span></div>
+<div class="row"><span>📳 Vibration</span><span><input type="checkbox" checked></span></div>
+<div class="row"><span>📷 Camera</span><span>TV 100% ✓</span></div>
+<div class="row"><span>🌿 Carpet</span><span>THE SAME ✓</span></div>
+<div class="row"><span>🔄 Auto-Rotate</span><span>OFF ✓ (Fixed)</span></div>
+<div class="row"><span>⚽ Mode</span><span>Dream League 11vs11</span></div>
+<button onclick="closeSettings()" style="width:100%;margin-top:15px;padding:10px;background:#2ecc71;border:none;border-radius:8px;font-weight:bold">SAVE & CLOSE</button>
+</div>
+</div>
+
+<script>
+function openSettings(){document.getElementById('settingsModal').style.display='flex'}
+function closeSettings(){document.getElementById('settingsModal').style.display='none'}
+function play(amount){
+  if(confirm("Eka hii "+amount+"?")){
+    alert(amount+" locked! Pitch ya PRM vs RAF ina-load next...");
   }
-  // lines
-  ctx.strokeStyle='white'; ctx.lineWidth=3;
-  ctx.strokeRect(40,80,640,1120);
-  ctx.beginPath(); ctx.moveTo(40,640); ctx.lineTo(680,640); ctx.stroke();
-  ctx.beginPath(); ctx.arc(360,640
+}
+// Zuia zoom na rotate auto ovyo
+document.addEventListener('touchmove', function(e){if(e.scale!==1){e.preventDefault()}},{passive:false});
+</script>
+</body>
+</html>
