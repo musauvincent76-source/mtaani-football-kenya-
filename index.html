@@ -1,184 +1,129 @@
 <!DOCTYPE html>
-<html>
+<html lang="sw">
 <head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>MTAANI #31 - FULL GAME</title>
+<title>MTAANI 22 PLAYERS</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-html,body{width:100%;height:100%;overflow:hidden;background:#020d06}
-#rotated{width:100vh;height:100vw;transform:rotate(90deg);transform-origin:0 0;position:absolute;top:0;left:100vw;background:#020d06;display:flex;flex-direction:column}
-.top{height:11%;background:#010a0f;border-bottom:2px solid #00ff88;display:flex;justify-content:space-between;align-items:center;padding:0 10px}
-.free{background:#00ff88;color:#000;padding:5px 10px;border-radius:4px;font-weight:900;font-size:10px;cursor:pointer}
-.title{border:2px solid #00ff88;padding:4px 18px;background:#111;font-weight:900;font-size:14px;transform:skew(-12deg)}
-.title span{display:block;transform:skew(12deg);color:#fff}
-.coins{display:flex;gap:5px}
-.coins div{border:1px solid #00ff88;padding:4px 8px;border-radius:5px;font-size:10px;background:#0a1a2a;color:#fff;font-weight:700}
-.wrap{flex:1;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;grid-template-rows:1.5fr 1fr;gap:5px;padding:5px;background:#061a2a}
-.card{border:1.8px solid #00ff88;border-radius:8px;overflow:hidden;background:#0a1a2a;display:flex;flex-direction:column;cursor:pointer}
-.head{padding:6px 8px;font-weight:900;font-size:11px;color:#fff}
-.head.red{background:#cc0033}.head.blue{background:#0055ff}.head.orange{background:#ff6600}.head.lblue{background:#0099ff;color:#000}.head.black{background:#222}.head.purple{background:#6600cc}
-.body{flex:1;position:relative;background-size:cover;background-position:center}
-.big{grid-row:span 2}
-.card:nth-child(1).body{background-image:url('https://images.unsplash.com/photo-1579952363873-27f3bfad9f55?q=80&w=800')}
-.card:nth-child(2).body{background-image:url('https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?q=80&w=800')}
-.card:nth-child(3).body{background-image:url('https://images.unsplash.com/photo-1522778119026-d647f0596c20&q=80&w=800')}
-.card:nth-child(4).body{background-image:url('https://images.unsplash.com/photo-1511886921261-899e06bfed53?q=80&w=800')}
-.card:nth-child(5).body{background-image:url('https://images.unsplash.com/photo-1482939651122-54c0b72d35ea?q=80&w=800')}
-.card:nth-child(6).body{background-image:url('https://images.unsplash.com/photo-1553778263-73a83bab9b0c?q=80&w=800')}
-.card:nth-child(7).body{background-image:url('https://images.unsplash.com/photo-1543351611-58f69d7c1781?q=80&w=800')}
-.body::after{content:"";position:absolute;bottom:0;left:0;right:0;height:50%;background:linear-gradient(to top, rgba(0,0,0,0.9), transparent)}
-.big.body::after{content:"MBAPPE VS ROGERS";position:absolute;bottom:6px;left:6px;right:6px;background:rgba(204,0,51,0.9);color:#fff;font-size:9px;font-weight:900;padding:5px;border-radius:4px;text-align:center;z-index:2;height:auto}
-#careerPage{display:none;flex:1;flex-direction:column;background:#061a2a}
-.careerWrap{flex:1;padding:6px;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1.5fr;gap:6px}
-.cItem{border:1.8px solid #00ff88;border-radius:10px;background:#0a1a2a;display:flex;align-items:center;justify-content:center;background-size:cover;background-position:center;position:relative;overflow:hidden;cursor:pointer}
-.cItem b{background:rgba(0,0,0,0.8);padding:5px 10px;border-radius:5px;z-index:2;color:#00ff88;font-size:11px}
-.cItem:nth-child(1){background-image:url('https://images.unsplash.com/photo-1577223522660-65d87e4be2d5?q=80&w=600')}
-.cItem:nth-child(2){background-image:url('https://images.unsplash.com/photo-1511886921261-899e06bfed53?q=80&w=600')}
-.cItem:nth-child(3){background-image:url('https://images.unsplash.com/photo-1556056504-5c7696c4c28d?q=80&w=600')}
-.cItem:nth-child(4){background-image:url('https://images.unsplash.com/photo-1522778119026-d647f0596c20?q=80&w=600');border-color:#ff6600}
-#gamePage{display:none;flex:1;background:#1a8a2a;position:relative;flex-direction:column}
-.stadium3d{flex:1;position:relative;background:radial-gradient(ellipse at center, #2a9a3a 0%, #1a7a2a 25%, #156a22 50%, #0f5a1a 100%);overflow:hidden}
-.crowdTop{height:18%;background:linear-gradient(to bottom, #222, #111);display:flex;flex-wrap:wrap;gap:1px;padding:3px;background-image:url('https://images.unsplash.com/photo-1482939651122-54c0b72d35ea?q=80&w=1200');background-size:cover;background-position:center;opacity:0.9}
-.scoreBoard{position:absolute;top:6px;left:50%;transform:translateX(-50%);background:#001a33;border:2px solid #00ff88;border-radius:20px;display:flex;align-items:center;gap:8px;padding:4px 12px;z-index:20;color:#fff;font-weight:900;font-size:11px}
-.scoreBoard.team{padding:3px 8px;border-radius:4px}
-.scoreBoard.team.prm{background:#ffcc00;color:#000}
-.scoreBoard.team.raf{background:#0055ff}
-.timeBox{background:#000;color:#00ff88;padding:2px 8px;border-radius:10px;border:1px solid #00ff88;font-size:10px}
-.adBoard{position:absolute;top:18%;left:0;right:0;height:10px;background:linear-gradient(90deg, #ff6600 0%, #ffcc00 20%, #00ff88 40%, #0055ff 60%, #ff0066 80%, #ff6600 100%);display:flex;align-items:center;justify-content:center;font-size:6px;font-weight:900;color:#000;letter-spacing:1px;z-index:10}
-.centerLine{position:absolute;left:50%;top:18%;bottom:0;width:2px;background:#fff;transform:translateX(-50%);z-index:5}
-.centerCircle{position:absolute;left:50%;top:50%;width:160px;height:160px;border:2px solid #fff;border-radius:50%;transform:translate(-50%,-30%);z-index:5}
-.playerDot{position:absolute;width:20px;height:20px;border-radius:50%;border:2px solid #fff;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:900;z-index:8;cursor:pointer;transition:all 0.1s}
-.playerDot.green{background:#00ff00;color:#000}
-.playerDot.white{background:#fff;color:#000}
-.playerDot.active{box-shadow:0 0 12px #00ff88;border-color:#00ff88;transform:scale(1.4);z-index:12}
-.ball{position:absolute;width:10px;height:10px;background:#fff;border-radius:50%;border:1.5px solid #000;left:50%;top:55%;z-index:9;transition:left 0.3s, top 0.3s}
-.controls3d{position:absolute;bottom:0;left:0;right:0;height:38%;display:flex;justify-content:space-between;align-items:flex-end;padding:8px;z-index:15;pointer-events:none}
-.joyWrap{pointer-events:auto;width:90px;height:90px;background:rgba(0,0,0,0.3);border:2px solid rgba(0,255,136,0.6);border-radius:50%;display:flex;align-items:center;justify-content:center;touch-action:none}
-.joyStick{width:36px;height:36px;background:#00ff88;border-radius:50%;border:2px solid #fff;box-shadow:0 0 10px #00ff88}
-.btnCircle{width:58px;height:58px;border-radius:50%;background:rgba(0,0,0,0.5);border:2px solid rgba(255,255,255,0.6);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:8px;cursor:pointer;pointer-events:auto;text-align:center}
-.btnCircle b{font-size:18px;line-height:1}
-.miniMap{width:80px;height:50px;background:rgba(0,0,0,0.7);border:1.5px solid #00ff88;border-radius:4px;position:relative;pointer-events:auto}
-.miniDot{position:absolute;width:4px;height:4px;border-radius:50%}
-@keyframes anguka{0%{transform:translateY(0) rotate(0)}100%{transform:translateY(30px) rotate(90deg);opacity:0.3}}
-.fall{animation:anguka 0.6s ease forwards}
+*{margin:0;padding:0;box-sizing:border-box;touch-action:none;user-select:none}
+body{background:#0a4a12;overflow:hidden;width:100vw;height:100vh;font-family:Arial}
+#gameCanvas{width:100vw;height:100vh;display:block}
+#topBar{position:absolute;top:0;left:0;right:0;height:40px;background:rgba(0,0,0,0.88);border-bottom:3px solid #00ff88;display:flex;justify-content:space-between;align-items:center;padding:0 12px;color:#fff;font-weight:900;z-index:10;font-size:11px}
+#controls{position:absolute;bottom:10px;left:10px;right:10px;display:flex;justify-content:space-between;align-items:flex-end;z-index:10;pointer-events:none}
+.joy{pointer-events:auto;width:95px;height:95px;background:rgba(0,0,0,0.6);border:3px solid #00ff88;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.stick{width:38px;height:38px;background:#00ff88;border-radius:50%;border:2px solid #fff}
+.btns{pointer-events:auto;display:flex;gap:10px}
+.b{width:62px;height:62px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:900;font-size:9px;color:#fff;border:2.5px solid #fff}
+.pass{background:#0055ff}.shoot{background:#ffcc00;color:#000;border-color:#000}
 </style>
 </head>
 <body>
-<div id="rotated">
-<div class="top" id="topMenu"><div style="display:flex;gap:6px;align-items:center"><div class="free">FREE COINS</div><div class="title"><span>MTAANI #31</span></div></div><div class="coins"><div>💎 132</div><div>🪙 358</div></div></div>
-<div class="top" id="topCareer" style="display:none"><div class="free" onclick="fungaCareer()">← RUDI</div><div class="title"><span>CAREER - NDANI</span></div><div class="coins"><div>💎 132 | 🪙 358</div></div></div>
-<div class="wrap" id="menuPage">
-<div class="card big" onclick="funguaCareer()"><div class="head red">CAREER MATCHES »</div><div class="body"></div></div>
-<div class="card"><div class="head orange">OSMALIPA DRAFT »</div><div class="body"></div></div>
-<div class="card"><div class="head lblue">MTAANI LIVE »</div><div class="body"></div></div>
-<div class="card"><div class="head black">CLANS »</div><div class="body"></div></div>
-<div class="card"><div class="head blue">TEAM »</div><div class="body"></div></div>
-<div class="card"><div class="head orange">TRANSFERS »</div><div class="body"></div></div>
-<div class="card"><div class="head purple">MY CLUB »</div><div class="body"></div></div>
-</div>
-<div id="careerPage">
-<div class="careerWrap">
-<div class="cItem"><b>📅 FIXTURES</b></div>
-<div class="cItem"><b>👥 MY TEAM</b></div>
-<div class="cItem"><b>📈 STATS</b></div>
-<div class="cItem" onclick="anzaGame()"><div style="background:rgba(0,0,0,0.85);padding:10px;border-radius:8px;text-align:center;z-index:2"><b style="color:#fff;display:block;margin-bottom:8px">📊 TABLE & RESULTS</b><div style="background:#ff6600;color:#000;padding:7px 16px;border-radius:6px;font-weight:900;font-size:12px">⚽ CHEZA MECHI</div></div></div>
-</div>
-</div>
-<div id="gamePage">
-<div class="stadium3d" id="pitch">
-<div class="crowdTop"></div>
-<div class="adBoard">FTG. • FTG. • FTG. •</div>
-<div class="scoreBoard"><div>⏸️</div><div class="team prm">PRM</div><div>0 - 0</div><div class="team raf">RAF</div><div class="timeBox">00:36</div></div>
-<div class="centerLine"></div>
-<div class="centerCircle"></div>
-<div class="ball" id="ball" style="left:50%;top:55%"></div>
-<div class="playerDot green active" style="left:22%;top:55%">9</div>
-<div class="playerDot green" style="left:5%;top:35%">2</div>
-<div class="playerDot green" style="left:15%;top:18%">4</div>
-<div class="playerDot green" style="left:32%;top:45%">6</div>
-<div class="playerDot green" style="left:35%;top:50%">8</div>
-<div class="playerDot green" style="left:58%;top:60%">7</div>
-<div class="playerDot white" style="left:42%;top:60%">10</div>
-<div class="playerDot white" style="left:35%;top:25%">6</div>
-<div class="playerDot white" style="left:52%;top:25%">7</div>
-<div class="playerDot white" style="left:58%;top:40%">11</div>
-<div class="playerDot white" style="left:78%;top:45%">4</div>
-<div class="playerDot white" style="left:56%;top:65%">8</div>
-<div class="controls3d">
-<div class="joyWrap" id="joyWrap"><div class="joyStick" id="joyStick"></div></div>
-<div style="display:flex;gap:30px;align-items:flex-end;pointer-events:auto">
-<div class="miniMap"><div style="position:absolute;left:50%;top:0;bottom:0;width:1px;background:#fff;opacity:0.5"></div></div>
-<div style="display:flex;flex-direction:column;gap:8px">
-<div class="btnCircle" onclick="pigaPass()">SWITCH<br><b>C</b></div>
-<div style="display:flex;gap:8px"><div class="btnCircle" onclick="fanyaFoul()">PRESSURE<br><b>B</b></div><div class="btnCircle" onclick="pigaShoot()">SLIDE<br><b>A</b></div></div>
-</div>
-</div>
-</div>
-</div>
-</div>
+<div id="topBar"><div>🇰🇪 11 vs 11 <span id="score">0 - 0</span> 22 PLAYERS</div><div style="background:#000;color:#00ff88;padding:3px 8px;border-radius:10px;border:1px solid #00ff88">CLOSE CAM ● 22</div></div>
+<canvas id="gameCanvas"></canvas>
+<div id="controls">
+<div class="joy" id="joy"><div class="stick" id="stick"></div></div>
+<div class="btns"><div class="b pass" id="btnPass">PASS<br><b style="font-size:14px">C</b></div><div class="b shoot" id="btnShoot">SHOOT<br><b style="font-size:14px">A</b></div></div>
 </div>
 <script>
-let activePlayer = document.querySelector('.playerDot.active');
-let joyWrap = document.getElementById('joyWrap');
-let joyStick = document.getElementById('joyStick');
-let ball = document.getElementById('ball');
-let isDragging = false;
-let joyCenter = {x:0,y:0};
+const canvas=document.getElementById('gameCanvas'), ctx=canvas.getContext('2d');
+canvas.width=innerWidth*2; canvas.height=innerHeight*2;
+let cam={x:0,y:0}, ball={x:600,y:425,vx:0,vy:0}, players=[], myPlayer, moveX=0,moveY=0,joyActive=false,joyCenter={x:0,y:0}, scoreK=0,scoreU=0;
 
-document.querySelectorAll('.playerDot.green').forEach(p=>{
-  p.addEventListener('click',()=>{
-    document.querySelectorAll('.playerDot').forEach(x=>x.classList.remove('active'));
-    p.classList.add('active');
-    activePlayer = p;
-  });
-});
+function createPlayers(){
+  players=[];
+  // KENYA 11 - JEZI MOJA RED/BLACK WOTE - FORMATION 4-4-2
+  players.push({x:120,y:425,human:false,num:1,jersey:'#cc0000',shorts:'#000',skin:'#c68642'}); // GK
+  players.push({x:250,y:200,human:false,num:2,jersey:'#cc0000',shorts:'#000',skin:'#8d5524'}); // DEF
+  players.push({x:250,y:300,human:false,num:5,jersey:'#cc0000',shorts:'#000',skin:'#c68642'});
+  players.push({x:250,y:550,human:false,num:6,jersey:'#cc0000',shorts:'#000',skin:'#5a3a22'});
+  players.push({x:250,y:650,human:false,num:3,jersey:'#cc0000',shorts:'#000',skin:'#8d5524'});
+  players.push({x:400,y:200,human:false,num:7,jersey:'#cc0000',shorts:'#000',skin:'#c68642'}); // MID
+  players.push({x:400,y:350,human:true,num:9,jersey:'#cc0000',shorts:'#000',skin:'#c68642'}); // YOU - 9
+  players.push({x:400,y:500,human:false,num:8,jersey:'#cc0000',shorts:'#000',skin:'#8d5524'});
+  players.push({x:400,y:650,human:false,num:11,jersey:'#cc0000',shorts:'#000',skin:'#c68642'});
+  players.push({x:550,y:350,human:false,num:10,jersey:'#cc0000',shorts:'#000',skin:'#5a3a22'}); // STRIKER
+  players.push({x:550,y:500,human:false,num:20,jersey:'#cc0000',shorts:'#000',skin:'#c68642'});
 
-function getJoyCenter(){
-  let r = joyWrap.getBoundingClientRect();
-  return {x: r.left + r.width/2, y: r.top + r.height/2};
+  // UGANDA 11 - JEZI MOJA RED/BLACK PIA - SAME JERSEY
+  players.push({x:1080,y:425,human:false,num:1,jersey:'#cc0000',shorts:'#000',skin:'#5a3a22'}); // GK
+  players.push({x:950,y:200,human:false,num:2,jersey:'#cc0000',shorts:'#000',skin:'#8d5524'});
+  players.push({x:950,y:300,human:false,num:5,jersey:'#cc0000',shorts:'#000',skin:'#c68642'});
+  players.push({x:950,y:550,human:false,num:6,jersey:'#cc0000',shorts:'#000',skin:'#5a3a22'});
+  players.push({x:950,y:650,human:false,num:3,jersey:'#cc0000',shorts:'#000',skin:'#8d5524'});
+  players.push({x:800,y:200,human:false,num:7,jersey:'#cc0000',shorts:'#000',skin:'#c68642'});
+  players.push({x:800,y:350,human:false,num:8,jersey:'#cc0000',shorts:'#000',skin:'#8d5524'});
+  players.push({x:800,y:500,human:false,num:11,jersey:'#cc0000',shorts:'#000',skin:'#c68642'});
+  players.push({x:800,y:650,human:false,num:10,jersey:'#cc0000',shorts:'#000',skin:'#5a3a22'});
+  players.push({x:650,y:350,human:false,num:9,jersey:'#cc0000',shorts:'#000',skin:'#c68642'});
+  players.push({x:650,y:500,human:false,num:20,jersey:'#cc0000',shorts:'#000',skin:'#8d5524'});
+
+  myPlayer=players[6]; // WEWE namba 9 katikati
+  ball.x=myPlayer.x+20; ball.y=myPlayer.y;
 }
-joyWrap.addEventListener('touchstart', e=>{isDragging=true;joyCenter=getJoyCenter();e.preventDefault();},{passive:false});
-joyWrap.addEventListener('mousedown', ()=>{isDragging=true;joyCenter=getJoyCenter();});
-window.addEventListener('touchend', ()=>{isDragging=false;joyStick.style.transform='translate(0,0)';});
-window.addEventListener('mouseup', ()=>{isDragging=false;joyStick.style.transform='translate(0,0)';});
-window.addEventListener('touchmove', e=>{
-  if(!isDragging||!activePlayer) return;
-  let t=e.touches[0]; movePlayer(t.clientX-joyCenter.x, t.clientY-joyCenter.y);
-},{passive:false});
-window.addEventListener('mousemove', e=>{
-  if(!isDragging||!activePlayer) return;
-  movePlayer(e.clientX-joyCenter.x, e.clientY-joyCenter.y);
-});
-function movePlayer(dx,dy){
-  let dist=Math.sqrt(dx*dx+dy*dy);
-  if(dist>30){dx=dx/dist*30; dy=dy/dist*30;}
-  joyStick.style.transform=`translate(${dx}px, ${dy}px)`;
-  let l=parseFloat(activePlayer.style.left);
-  let t=parseFloat(activePlayer.style.top);
-  l+=dx*0.18; t+=dy*0.18;
-  if(l<2) l=2; if(l>92) l=92; if(t<20) t=20; if(t>85) t=85;
-  activePlayer.style.left=l+'%';
-  activePlayer.style.top=t+'%';
-  let bl=parseFloat(ball.style.left); let bt=parseFloat(ball.style.top);
-  if(Math.abs(l-bl)<6 && Math.abs(t-bt)<6){
-    ball.style.left=(l+2)+'%'; ball.style.top=t+'%';
-  }
+
+function drawStadium(){
+  ctx.fillStyle='#87ceeb'; ctx.fillRect(0,0,3000,150);
+  ctx.fillStyle='#111'; ctx.fillRect(0-cam.x,50-cam.y,3000,40);
+  ctx.fillStyle='#ffcc00'; ctx.font='bold 16px Arial'; ctx.fillText('MTAANI #31 - 22 PLAYERS - 11 vs 11 - JEZI MOJA RED',100-cam.x,75-cam.y);
+  for(let i=0;i<400;i++){let cx=(i*37%3000), cy=90+(i*13%60); ctx.fillStyle=i%3==0?'#cc0000':i%3==1?'#00ff88':'#fff'; ctx.fillRect(cx-cam.x,cy-cam.y,4,6);}
+  for(let i=0;i<3000;i+=50){ctx.fillStyle=i%100==0?'#1e9c2d':'#1a8c28'; ctx.fillRect(i-cam.x,150-cam.y,50,2000);}
+  ctx.strokeStyle='rgba(255,255,255,0.9)'; ctx.lineWidth=3;
+  ctx.strokeRect(50-cam.x,150-cam.y,1100,550);
+  ctx.beginPath(); ctx.moveTo(600-cam.x,150-cam.y); ctx.lineTo(600-cam.x,700-cam.y); ctx.stroke();
+  ctx.beginPath(); ctx.arc(600-cam.x,425-cam.y,75,0,Math.PI*2); ctx.stroke();
+  ctx.strokeRect(50-cam.x,275-cam.y,130,300); ctx.strokeRect(1020-cam.x,275-cam.y,130,300);
+  ctx.fillStyle='#fff'; ctx.fillRect(20-cam.x,350-cam.y,30,150); ctx.fillRect(1150-cam.x,350-cam.y,30,150);
+  ctx.strokeStyle='#fff'; ctx.lineWidth=4; ctx.strokeRect(20-cam.x,350-cam.y,30,150); ctx.strokeRect(1150-cam.x,350-cam.y,30,150);
 }
-function funguaCareer(){document.getElementById('menuPage').style.display='none';document.getElementById('topMenu').style.display='none';document.getElementById('careerPage').style.display='flex';document.getElementById('topCareer').style.display='flex';}
-function fungaCareer(){document.getElementById('careerPage').style.display='none';document.getElementById('topCareer').style.display='none';document.getElementById('menuPage').style.display='grid';document.getElementById('topMenu').style.display='flex';}
-function anzaGame(){document.getElementById('careerPage').style.display='none';document.getElementById('topCareer').style.display='none';document.getElementById('gamePage').style.display='flex';}
-function pigaPass(){
-  ball.style.left='65%'; ball.style.top='45%';
-  setTimeout(()=>{ball.style.left='50%'; ball.style.top='55%'},500);
+
+function drawPlayer(p){
+  ctx.save(); ctx.translate(p.x-cam.x,p.y-cam.y);
+  ctx.fillStyle='rgba(0,0,0,0.35)'; ctx.beginPath(); ctx.ellipse(0,22,13,4.5,0,0,Math.PI*2); ctx.fill();
+  ctx.fillStyle=p.skin; ctx.fillRect(-5,10,4,10); ctx.fillRect(2,10,4,10);
+  ctx.fillStyle='#fff'; ctx.fillRect(-5,14,4,4); ctx.fillRect(2,14,4,4);
+  ctx.fillStyle='#111'; ctx.fillRect(-6,20,6,3.5); ctx.fillRect(1,20,6,3.5);
+  ctx.fillStyle=p.shorts; ctx.fillRect(-8,1,16,10);
+  ctx.fillStyle=p.jersey; ctx.fillRect(-10,-14,20,16);
+  ctx.fillStyle='#fff'; ctx.font='bold 10px Arial'; ctx.textAlign='center'; ctx.fillText(p.num,0,0);
+  ctx.fillStyle=p.skin; ctx.fillRect(-11,-11,3.5,8); ctx.fillRect(8,-11,3.5,8);
+  ctx.fillStyle=p.skin; ctx.beginPath(); ctx.arc(0,-19,7.5,0,Math.PI*2); ctx.fill();
+  ctx.strokeStyle='#000'; ctx.lineWidth=0.5; ctx.stroke();
+  ctx.fillStyle='#111'; ctx.beginPath(); ctx.arc(0,-24,7,Math.PI,0); ctx.fill();
+  if(p.human){ctx.strokeStyle='#00ff88'; ctx.lineWidth=2.8; ctx.beginPath(); ctx.arc(0,2,18,0,Math.PI*2); ctx.stroke(); ctx.fillStyle='#00ff88'; ctx.font='bold 8px Arial'; ctx.fillText('WEWE',0,32);}
+  ctx.restore();
 }
-function pigaShoot(){
-  ball.style.left='88%'; ball.style.top='48%';
-  setTimeout(()=>{ball.style.left='50%'; ball.style.top='55%'; alert('GOAL! MBAPPE! ⚽🔥');},600);
+
+function draw(){
+  drawStadium();
+  ctx.fillStyle='#fff'; ctx.strokeStyle='#222'; ctx.lineWidth=1.8;
+  ctx.beginPath(); ctx.arc(ball.x-cam.x,ball.y-cam.y,7.5,0,Math.PI*2); ctx.fill(); ctx.stroke();
+  ctx.fillStyle='#000'; ctx.beginPath(); ctx.arc(ball.x-cam.x+1.5,ball.y-cam.y-1,2,0,Math.PI*2); ctx.fill();
+  players.forEach(drawPlayer);
 }
-function fanyaFoul(){
-  let p=document.querySelector('.playerDot.white');
-  p.classList.add('fall'); setTimeout(()=>p.classList.remove('fall'),700);
+
+function update(){
+  if(myPlayer){myPlayer.x+=moveX*5; myPlayer.y+=moveY*5; myPlayer.x=Math.max(60,Math.min(1140,myPlayer.x)); myPlayer.y=Math.max(160,Math.min(690,myPlayer.y)); if(Math.hypot(myPlayer.x-ball.x,myPlayer.y-ball.y)<24){ball.x=myPlayer.x+15; ball.y=myPlayer.y+2;}}
+  players.forEach(p=>{if(p.human)return; let dx=ball.x-p.x, dy=ball.y-p.y, d=Math.hypot(dx,dy); if(d<400){p.x+=dx/d*1.2; p.y+=dy/d*1.2; p.x=Math.max(60,Math.min(1140,p.x)); p.y=Math.max(160,Math.min(690,p.y)); if(d<18&&Math.random()<0.035){ball.vx=(Math.random()-0.5)*12; ball.vy=(Math.random()-0.5)*12;}}});
+  ball.x+=ball.vx; ball.y+=ball.vy; ball.vx*=0.965; ball.vy*=0.965;
+  if(ball.x>1150&&ball.y>350&&ball.y<500){scoreK++; document.getElementById('score').innerText=scoreK+' - '+scoreU; reset(); alert('GOAL! 🔥');}
+  if(ball.x<50&&ball.y>350&&ball.y<500){scoreU++; document.getElementById('score').innerText=scoreK+' - '+scoreU; reset(); alert('GOAL!');}
+  cam.x+=(ball.x - canvas.width/5 - cam.x)*0.11; cam.y+=(ball.y - canvas.height/3.5 - cam.y)*0.11;
 }
+function reset(){ball.x=600; ball.y=425; ball.vx=0; ball.vy=0; createPlayers();}
+const joy=document.getElementById('joy'), stick=document.getElementById('stick');
+function getCenter(){let r=joy.getBoundingClientRect(); return {x:r.left+r.width/2,y:r.top+r.height/2};}
+joy.addEventListener('touchstart',e=>{joyActive=true; joyCenter=getCenter(); e.preventDefault();},{passive:false});
+joy.addEventListener('mousedown',()=>{joyActive=true; joyCenter=getCenter();});
+window.addEventListener('touchend',()=>{joyActive=false; stick.style.transform='translate(0,0)'; moveX=0; moveY=0;});
+window.addEventListener('mouseup',()=>{joyActive=false; stick.style.transform='translate(0,0)'; moveX=0; moveY=0;});
+window.addEventListener('touchmove',e=>{if(!joyActive)return; let t=e.touches[0],dx=t.clientX-joyCenter.x,dy=t.clientY-joyCenter.y,d=Math.hypot(dx,dy); if(d>35){dx=dx/d*35; dy=dy/d*35;} stick.style.transform=`translate(${dx}px,${dy}px)`; moveX=dx/35; moveY=dy/35;},{passive:false});
+window.addEventListener('mousemove',e=>{if(!joyActive)return; let dx=e.clientX-joyCenter.x,dy=e.clientY-joyCenter.y,d=Math.hypot(dx,dy); if(d>35){dx=dx/d*35; dy=dy/d*35;} stick.style.transform=`translate(${dx}px,${dy}px)`; moveX=dx/35; moveY=dy/35;});
+document.getElementById('btnPass').addEventListener('touchstart',e=>{e.preventDefault(); ball.vx=11; ball.vy=(Math.random()-0.5)*5;});
+document.getElementById('btnPass').addEventListener('mousedown',()=>{ball.vx=11; ball.vy=(Math.random()-0.5)*5;});
+document.getElementById('btnShoot').addEventListener('touchstart',e=>{e.preventDefault(); ball.vx=18; ball.vy=(Math.random()-0.5)*3;});
+document.getElementById('btnShoot').addEventListener('mousedown',()=>{ball.vx=18; ball.vy=(Math.random()-0.5)*3;});
+createPlayers();
+(function loop(){update(); draw(); requestAnimationFrame(loop);})();
 </script>
 </body>
 </html>
