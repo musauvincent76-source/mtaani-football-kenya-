@@ -2,114 +2,102 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MTAANI #31</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:#0a1610;color:white;font-family:Arial}
-#app{width:100%;min-height:100vh;background:#0a1610;padding-bottom:80px}
-.top{background:#112a1a;padding:12px 15px;border-bottom:3px solid #2ecc71;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:10}
-.top h1{color:#2ecc71;font-size:18px}
-.coins{background:#1e3d2a;border:1px solid #f1c40f;padding:6px 12px;border-radius:20px;color:#f1c40f;font-size:12px;font-weight:bold}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:14px}
-.box{background:linear-gradient(145deg,#1e3d2a,#122a1b);border:1.5px solid #2ecc71;border-radius:12px;padding:15px;text-align:center}
-.box.big{grid-column: span 2;border-color:#f1c40f}
-.box h3{font-size:14px;margin:6px 0}
-.box small{color:#8fbc8f;font-size:11px}
-.icon{font-size:28px}
-.table-box{grid-column: span 2;background:#112a1a;border:1.5px solid #2ecc71;border-radius:10px;padding:12px;margin-top:4px}
-table{width:100%;font-size:12px;border-collapse:collapse}
-th{color:#2ecc71;text-align:left;padding:6px}
-td{padding:6px;border-top:1px solid #1e3d2a}
-.btn{width:92%;margin:15px 4%;background:#2ecc71;color:#000;padding:14px;border:none;border-radius:25px;font-weight:bold;font-size:16px;position:sticky;bottom:10px}
-.modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);z-index:99;justify-content:center;align-items:center}
-.modal-box{background:#112a1a;border:2px solid #2ecc71;border-radius:12px;padding:15px;width:90%}
+body{background:#020d06;color:white;font-family:Arial, sans-serif}
+.header{background:#010f08;display:flex;justify-content:space-between;align-items:center;padding:6px 8px;border-bottom:2px solid #0f4d1f;position:sticky;top:0;z-index:10}
+.left{display:flex;gap:5px;align-items:center}
+.ico{width:30px;height:30px;background:#0a2a14;border:1px solid #00ff88;border-radius:6px;display:flex;align-items:center;justify-content:center}
+.free{background:#00ff88;color:#000;padding:5px 8px;border-radius:4px;font-weight:900;font-size:9px}
+.mtaani{background:#3d0a14;border:1px solid #ff2040;padding:3px 8px;border-radius:4px;text-align:center}
+.mtaani b{color:#00ff88;font-size:10px;display:block}
+.mtaani small{font-size:7px}
+.dia{background:#6de3ff;color:#000;padding:4px 10px;border-radius:15px;font-weight:900;font-size:10px}
+.co{background:#ffcc00;color:#000;padding:4px 10px;border-radius:15px;font-weight:900;font-size:10px}
+
+.wrap{padding:6px;display:grid;grid-template-columns:1.3fr 0.9fr 0.9fr;gap:6px;background:#020d06}
+.card{border:1.5px solid #00ff88;border-radius:8px;overflow:hidden;min-height:110px;background:linear-gradient(180deg,#0a2212,#050f08)}
+.head{padding:6px 8px;font-weight:900;font-size:11px;display:flex;justify-content:space-between}
+.head.red{background:#b00}
+.head.blue{background:#0077cc}
+.head.orange{background:#cc5500}
+.head.lblue{background:#00aaff;color:#000}
+.head.black{background:#151515}
+.head.green{background:#0a2f14}
+.body{height:80px;background:transparent}
+
+.span2{grid-column:span 2}
+@media(max-width:700px){.wrap{grid-template-columns:1fr}.span2{grid-column:span 1}}
 </style>
 </head>
 <body>
-<div id="app">
 
-<div class="top">
-<h1>⚽ MTAANI #31</h1>
-<div class="coins">💰 12,500 | ⭐ LVL 14</div>
+<div class="header">
+<div class="left">
+<div class="ico">⚙️</div>
+<div class="free">FREE COINS</div>
+<div class="mtaani"><b>MTAANI #31</b><small>70d 23h 53m</small></div>
 </div>
-
-<div class="grid">
-
-<div class="box big" onclick="openCareer()">
-<div class="icon">🏆</div>
-<h3>CAREER MATCHES</h3>
-<small>Season 1 - 8 Games - Gusa kuona Table</small>
-</div>
-
-<div class="box">
-<div class="icon">🎁</div>
-<h3>PLAYER PACK</h3>
-<small>Open Cards</small>
-</div>
-
-<div class="box">
-<div class="icon">💵</div>
-<h3>OSMALIPA</h3>
-<small>15K - 120K Rooms</small>
-</div>
-
-<div class="box">
-<div class="icon">👥</div>
-<h3>MULTIPLAYER</h3>
-<small>1vs1 Online</small>
-</div>
-
-<div class="box">
-<div class="icon">⚔️</div>
-<h3>VS RAF FC</h3>
-<small>Quick Match</small>
-</div>
-
-<div class="box">
-<div class="icon">🏃</div>
-<h3>TRAINING</h3>
-<small>Skills</small>
-</div>
-
-<div class="box">
-<div class="icon">⚙️</div>
-<h3>SETTINGS</h3>
-<small>Kila Kitu</small>
-</div>
-
-<div class="table-box" onclick="openCareer()">
-<div style="display:flex;justify-content:space-between;margin-bottom:8px">
-<span style="color:#2ecc71;font-weight:bold">📊 CAREER TABLE</span>
-<span style="color:#f1c40f;font-size:11px">Full Table ></span>
-</div>
-<table>
-<tr><th>#</th><th>Team</th><th>P</th><th>Pts</th></tr>
-<tr style="background:#1e3d2a"><td>1</td><td>PRM FC 🔥</td><td>8</td><td style="color:#2ecc71;font-weight:bold">18</td></tr>
-<tr><td>2</td><td>RAF FC</td><td>8</td><td>15</td></tr>
-<tr><td>3</td><td>Mtaani XI</td><td>8</td><td>9</td></tr>
-</table>
-</div>
-
-</div>
-
-<button class="btn">▶️ EKA HII - PLAY NOW</button>
-</div>
-
-<div id="careerModal" class="modal" onclick="this.style.display='none'">
-<div class="modal-box" onclick="event.stopPropagation()">
-<h3 style="color:#2ecc71">🏆 CAREER TABLE FULL</h3>
-<table style="margin-top:10px;width:100%">
-<tr><th>Pos</th><th>Team</th><th>P</th><th>W</th><th>Pts</th></tr>
-<tr style="background:#1e3d2a"><td>1</td><td>PRM FC</td><td>8</td><td>6</td><td>18</td></tr>
-<tr><td>2</td><td>RAF FC</td><td>8</td><td>5</td><td>15</td></tr>
-<tr><td>3</td><td>Mtaani XI</td><td>8</td><td>3</td><td>11</td></tr>
-<tr><td>4</td><td>Eldoret Stars</td><td>8</td><td>1</td><td>4</td></tr>
-</table>
-<button onclick="document.getElementById('careerModal').style.display='none'" style="width:100%;margin-top:12px;padding:10px;background:#2ecc71;border:none;border-radius:8px;font-weight:bold">CLOSE</button>
+<div class="left">
+<div class="dia">💎 132</div>
+<div class="co">🪙 358</div>
 </div>
 </div>
 
-<script>
-function openCareer(){document.getElementById('careerModal').style.display='flex'}
-</script>
+<div class="wrap">
+
+<div class="card span2">
+<div class="head red">CAREER <span>>> </span></div>
+<div class="body"></div>
+</div>
+
+<div class="card">
+<div class="head blue">SCENARIO <span>>> </span></div>
+<div class="body"></div>
+</div>
+
+<div class="card">
+<div class="head orange">OSMALIPA DRAFT <span>>> </span></div>
+<div class="body"></div>
+</div>
+
+<div class="card span2">
+<div class="head lblue">MTAANI LIVE <span>>> </span></div>
+<div class="body"></div>
+</div>
+
+<div class="card">
+<div class="head black">CLANS <span>>> </span></div>
+<div class="body"></div>
+</div>
+
+<div class="card">
+<div class="head green">DLL EVENT <span>>> </span></div>
+<div class="body"></div>
+</div>
+
+<div class="card">
+<div class="head green">CHALLENGES <span>>> </span></div>
+<div class="body"></div>
+</div>
+
+<div class="card">
+<div class="head green">TEAM <span>>> </span></div>
+<div class="body"></div>
+</div>
+
+<div class="card">
+<div class="head green">TRANSFERS <span>>> </span></div>
+<div class="body"></div>
+</div>
+
+<div class="card">
+<div class="head green">MY CLUB <span>>> </span></div>
+<div class="body"></div>
+</div>
+
+</div>
+
 </body>
 </html>
