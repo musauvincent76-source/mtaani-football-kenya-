@@ -2,99 +2,59 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MTAANI #31</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:#020d06;color:white;font-family:Arial, sans-serif}
-.header{background:#010f08;display:flex;justify-content:space-between;align-items:center;padding:6px 8px;border-bottom:2px solid #0f4d1f;position:sticky;top:0;z-index:10}
-.left{display:flex;gap:5px;align-items:center}
-.ico{width:30px;height:30px;background:#0a2a14;border:1px solid #00ff88;border-radius:6px;display:flex;align-items:center;justify-content:center}
-.free{background:#00ff88;color:#000;padding:5px 8px;border-radius:4px;font-weight:900;font-size:9px}
-.mtaani{background:#3d0a14;border:1px solid #ff2040;padding:3px 8px;border-radius:4px;text-align:center}
-.mtaani b{color:#00ff88;font-size:10px;display:block}
-.mtaani small{font-size:7px}
-.dia{background:#6de3ff;color:#000;padding:4px 10px;border-radius:15px;font-weight:900;font-size:10px}
-.co{background:#ffcc00;color:#000;padding:4px 10px;border-radius:15px;font-weight:900;font-size:10px}
+body{background:#020d06;color:#fff;font-family:Arial;overflow-x:hidden}
+.top{width:100%;background:#010a0f;border:2px solid #00ff88;display:flex;justify-content:space-between;align-items:center;padding:6px 10px;flex-wrap:wrap;gap:6px}
+.free{background:#00ff88;color:#000;padding:5px 12px;border-radius:6px;font-weight:900;font-size:10px}
+.title{border:2px solid #00ff88;padding:4px 20px;background:#111;font-weight:900;font-size:18px;clip-path:polygon(10% 0,100% 0,90% 100%,0 100%)}
+.diam{border:1.5px solid #00ff88;padding:4px 12px;border-radius:6px;font-size:11px;background:#0a1a2a}
+.co{border:1.5px solid #00ff88;padding:4px 12px;border-radius:6px;font-size:11px;background:#0a1a2a;color:#ffcc00}
 
-.wrap{padding:6px;display:grid;grid-template-columns:1.3fr 0.9fr 0.9fr;gap:6px;background:#020d06}
-.card{border:1.5px solid #00ff88;border-radius:8px;overflow:hidden;min-height:110px;background:linear-gradient(180deg,#0a2212,#050f08)}
-.head{padding:6px 8px;font-weight:900;font-size:11px;display:flex;justify-content:space-between}
-.head.red{background:#b00}
-.head.blue{background:#0077cc}
-.head.orange{background:#cc5500}
-.head.lblue{background:#00aaff;color:#000}
-.head.black{background:#151515}
-.head.green{background:#0a2f14}
-.body{height:80px;background:transparent}
+.wrap{padding:8px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;background:#061a2a;min-height:100vh}
+.card{border:2px solid #00ff88;border-radius:8px;overflow:hidden;min-height:140px;background:#0a1a2a}
+.head{padding:6px 10px;font-weight:900;font-size:13px}
+.head.red{background:#cc0033}
+.head.blue{background:linear-gradient(90deg,#0055ff,#00ccff)}
+.head.orange{background:#ff6600}
+.head.lblue{background:linear-gradient(90deg,#0055ff,#00ccff)}
+.head.black{background:#111}
+.head.green{background:#0a4d1a}
+.body{height:100px;background:#0a1a2a}
 
-.span2{grid-column:span 2}
-@media(max-width:700px){.wrap{grid-template-columns:1fr}.span2{grid-column:span 1}}
+.row2{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:8px;grid-column:span 3}
+.row2 .card{min-height:110px}
+
+@media(max-width:900px){.wrap{grid-template-columns:1fr 1fr}.row2{grid-column:span 2;grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.wrap{grid-template-columns:1fr}.row2{grid-column:span 1;grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body>
 
-<div class="header">
-<div class="left">
-<div class="ico">⚙️</div>
-<div class="free">FREE COINS</div>
-<div class="mtaani"><b>MTAANI #31</b><small>70d 23h 53m</small></div>
-</div>
-<div class="left">
-<div class="dia">💎 132</div>
-<div class="co">🪙 358</div>
+<div class="top">
+<div class="free">🎬 FREE COINS</div>
+<div class="title">MTAANI #31</div>
+<div style="display:flex;gap:6px">
+<div class="diam">💎 diamonds 132</div>
+<div class="co">💰 coins 358</div>
 </div>
 </div>
 
 <div class="wrap">
 
-<div class="card span2">
-<div class="head red">CAREER <span>>> </span></div>
-<div class="body"></div>
-</div>
+<div class="card"><div class="head red">CAREER</div><div class="body"></div></div>
+<div class="card"><div class="head blue">SCENARIO vs</div><div class="body"></div></div>
+<div class="card"><div class="head orange">OSMALIPA DRAFT</div><div class="body"></div></div>
 
-<div class="card">
-<div class="head blue">SCENARIO <span>>> </span></div>
-<div class="body"></div>
-</div>
+<div class="card"><div class="head lblue">MTAANI LIVE</div><div class="body"></div></div>
+<div class="card"><div class="head black">CLANS</div><div class="body"></div></div>
+<div class="card"><div class="head green">DLL EVENT</div><div class="body"></div></div>
 
-<div class="card">
-<div class="head orange">OSMALIPA DRAFT <span>>> </span></div>
-<div class="body"></div>
-</div>
-
-<div class="card span2">
-<div class="head lblue">MTAANI LIVE <span>>> </span></div>
-<div class="body"></div>
-</div>
-
-<div class="card">
-<div class="head black">CLANS <span>>> </span></div>
-<div class="body"></div>
-</div>
-
-<div class="card">
-<div class="head green">DLL EVENT <span>>> </span></div>
-<div class="body"></div>
-</div>
-
-<div class="card">
-<div class="head green">CHALLENGES <span>>> </span></div>
-<div class="body"></div>
-</div>
-
-<div class="card">
-<div class="head green">TEAM <span>>> </span></div>
-<div class="body"></div>
-</div>
-
-<div class="card">
-<div class="head green">TRANSFERS <span>>> </span></div>
-<div class="body"></div>
-</div>
-
-<div class="card">
-<div class="head green">MY CLUB <span>>> </span></div>
-<div class="body"></div>
+<div class="row2">
+<div class="card"><div class="head red">CHALLENGES</div><div class="body"></div></div>
+<div class="card"><div class="head blue">TEAM</div><div class="body"></div></div>
+<div class="card"><div class="head orange">TRANSFERS</div><div class="body"></div></div>
+<div class="card"><div class="head green">MY CLUB</div><div class="body"></div></div>
 </div>
 
 </div>
