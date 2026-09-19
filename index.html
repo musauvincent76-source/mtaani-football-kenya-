@@ -1,32 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:#0a1610;color:white;font-family:Arial;overflow:hidden}
-.top{background:#112a1a;padding:10px 15px;border-bottom:2px solid #2ecc71;display:flex;justify-content:space-between;align-items:center}
-.top h1{color:#2ecc71;font-size:17px}
-.coins{background:#1e3d2a;border:1px solid #f1c40f;padding:5px 10px;border-radius:20px;color:#f1c40f;font-size:12px;font-weight:bold}
-.grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;padding:12px}
-.box{background:linear-gradient(145deg,#1e3d2a,#122a1b);border:1.5px solid #2ecc71;border-radius:12px;padding:12px;text-align:center;cursor:pointer}
-.box.big{grid-column: span 2;background:linear-gradient(145deg,#1a3d2a,#0f2a1a);border-color:#f1c40f}
-.box h3{font-size:13px;margin:5px 0;color:#fff}
-.box small{color:#8fbc8f;font-size:10px}
-.icon{font-size:26px}
-.table-box{grid-column: span 3;background:#112a1a;border:1.5px solid #2ecc71;border-radius:10px;padding:10px}
-table{width:100%;font-size:11px;border-collapse:collapse}
-th{color:#2ecc71;text-align:left;padding:4px}
-td{padding:4px;border-top:1px solid #1e3d2a}
-.btn{width:92%;margin:8px 4%;background:#2ecc71;color:#000;padding:12px;border:none;border-radius:25px;font-weight:bold}
-
-/* PERMANENT LANDSCAPE - AKIFUNGUA IKO KANDO TAYARI */
-#app{width:100vw;height:100vh;overflow:auto;background:#0a1610}
-@media (orientation:portrait){
- #app{width:100vh;height:100vw;transform:rotate(90deg);transform-origin:top left;position:fixed;top:0;left:100%}
-}
+body{background:#0a1610;color:white;font-family:Arial}
+#app{width:100%;min-height:100vh;background:#0a1610;padding-bottom:80px}
+.top{background:#112a1a;padding:12px 15px;border-bottom:3px solid #2ecc71;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:10}
+.top h1{color:#2ecc71;font-size:18px}
+.coins{background:#1e3d2a;border:1px solid #f1c40f;padding:6px 12px;border-radius:20px;color:#f1c40f;font-size:12px;font-weight:bold}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:14px}
+.box{background:linear-gradient(145deg,#1e3d2a,#122a1b);border:1.5px solid #2ecc71;border-radius:12px;padding:15px;text-align:center}
+.box.big{grid-column: span 2;border-color:#f1c40f}
+.box h3{font-size:14px;margin:6px 0}
+.box small{color:#8fbc8f;font-size:11px}
+.icon{font-size:28px}
+.table-box{grid-column: span 2;background:#112a1a;border:1.5px solid #2ecc71;border-radius:10px;padding:12px;margin-top:4px}
+table{width:100%;font-size:12px;border-collapse:collapse}
+th{color:#2ecc71;text-align:left;padding:6px}
+td{padding:6px;border-top:1px solid #1e3d2a}
+.btn{width:92%;margin:15px 4%;background:#2ecc71;color:#000;padding:14px;border:none;border-radius:25px;font-weight:bold;font-size:16px;position:sticky;bottom:10px}
 .modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);z-index:99;justify-content:center;align-items:center}
-.modal-box{background:#112a1a;border:2px solid #2ecc71;border-radius:12px;padding:15px;width:90%;max-height:80%;overflow:auto}
+.modal-box{background:#112a1a;border:2px solid #2ecc71;border-radius:12px;padding:15px;width:90%}
 </style>
 </head>
 <body>
@@ -39,63 +34,82 @@ td{padding:4px;border-top:1px solid #1e3d2a}
 
 <div class="grid">
 
-<!-- 1. CAREER MATCHES NA TABLE YAKE -->
 <div class="box big" onclick="openCareer()">
 <div class="icon">🏆</div>
 <h3>CAREER MATCHES</h3>
-<small>Season 1 - 8 Games</small>
+<small>Season 1 - 8 Games - Gusa kuona Table</small>
 </div>
 
-<div class="box" onclick="alert('Player Pack - utafungua cards za PRM vs RAF')">
+<div class="box">
 <div class="icon">🎁</div>
 <h3>PLAYER PACK</h3>
-<small>Open Now</small>
+<small>Open Cards</small>
 </div>
 
-<!-- 2. OSMALIPA BOX YA KUBEET -->
-<div class="box" onclick="alert('Osmalipa - Eka stake ucheze')">
+<div class="box">
 <div class="icon">💵</div>
 <h3>OSMALIPA</h3>
-<small>15K-120K Rooms</small>
+<small>15K - 120K Rooms</small>
 </div>
 
-<div class="box" onclick="alert('Multiple Players - Online')">
+<div class="box">
 <div class="icon">👥</div>
 <h3>MULTIPLAYER</h3>
 <small>1vs1 Online</small>
 </div>
 
-<div class="box" onclick="alert('Quick Match vs RAF')">
+<div class="box">
 <div class="icon">⚔️</div>
-<h3>VS RAF</h3>
+<h3>VS RAF FC</h3>
 <small>Quick Match</small>
 </div>
 
-<!-- 3. TABLE YA POINTS NDANI YA MENU -->
-<div class="table-box">
-<div style="display:flex;justify-content:space-between;margin-bottom:6px">
-<span style="color:#2ecc71;font-weight:bold;font-size:12px">📊 CAREER TABLE</span>
-<span style="color:#f1c40f;font-size:10px" onclick="openCareer()">View Full Table ></span>
-</div>
-<table>
-<tr><th>#</th><th>Team</th><th>P</th><th>W</th><th>Pts</th></tr>
-<tr><td>1</td><td>PRM FC 🔥</td><td>8</td><td>6</td><td style="color:#2ecc71;font-weight:bold">18</td></tr>
-<tr><td>2</td><td>RAF FC</td><td>8</td><td>5</td><td>15</td></tr>
-<tr><td>3</td><td>Mtaani XI</td><td>8</td><td>3</td><td>9</td></tr>
-</table>
-</div>
-
-<div class="box" onclick="alert('Training')">
+<div class="box">
 <div class="icon">🏃</div>
 <h3>TRAINING</h3>
 <small>Skills</small>
 </div>
 
-<div class="box" onclick="alert('Daily Rewards')">
-<div class="icon">🎯</div>
-<h3>DAILY BOX</h3>
-<small>Free Coins</small>
+<div class="box">
+<div class="icon">⚙️</div>
+<h3>SETTINGS</h3>
+<small>Kila Kitu</small>
 </div>
 
-<div class="box" onclick="alert('Settings')">
-<div
+<div class="table-box" onclick="openCareer()">
+<div style="display:flex;justify-content:space-between;margin-bottom:8px">
+<span style="color:#2ecc71;font-weight:bold">📊 CAREER TABLE</span>
+<span style="color:#f1c40f;font-size:11px">Full Table ></span>
+</div>
+<table>
+<tr><th>#</th><th>Team</th><th>P</th><th>Pts</th></tr>
+<tr style="background:#1e3d2a"><td>1</td><td>PRM FC 🔥</td><td>8</td><td style="color:#2ecc71;font-weight:bold">18</td></tr>
+<tr><td>2</td><td>RAF FC</td><td>8</td><td>15</td></tr>
+<tr><td>3</td><td>Mtaani XI</td><td>8</td><td>9</td></tr>
+</table>
+</div>
+
+</div>
+
+<button class="btn">▶️ EKA HII - PLAY NOW</button>
+</div>
+
+<div id="careerModal" class="modal" onclick="this.style.display='none'">
+<div class="modal-box" onclick="event.stopPropagation()">
+<h3 style="color:#2ecc71">🏆 CAREER TABLE FULL</h3>
+<table style="margin-top:10px;width:100%">
+<tr><th>Pos</th><th>Team</th><th>P</th><th>W</th><th>Pts</th></tr>
+<tr style="background:#1e3d2a"><td>1</td><td>PRM FC</td><td>8</td><td>6</td><td>18</td></tr>
+<tr><td>2</td><td>RAF FC</td><td>8</td><td>5</td><td>15</td></tr>
+<tr><td>3</td><td>Mtaani XI</td><td>8</td><td>3</td><td>11</td></tr>
+<tr><td>4</td><td>Eldoret Stars</td><td>8</td><td>1</td><td>4</td></tr>
+</table>
+<button onclick="document.getElementById('careerModal').style.display='none'" style="width:100%;margin-top:12px;padding:10px;background:#2ecc71;border:none;border-radius:8px;font-weight:bold">CLOSE</button>
+</div>
+</div>
+
+<script>
+function openCareer(){document.getElementById('careerModal').style.display='flex'}
+</script>
+</body>
+</html>
