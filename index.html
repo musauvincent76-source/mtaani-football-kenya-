@@ -17,8 +17,21 @@ html,body{width:100%;height:100%;overflow:hidden;background:#020d06}
 .card{border:1.8px solid #00ff88;border-radius:8px;overflow:hidden;background:#0a1a2a;display:flex;flex-direction:column;cursor:pointer}
 .head{padding:6px 8px;font-weight:900;font-size:11px;display:flex;justify-content:space-between;flex-shrink:0;color:#fff}
 .head.red{background:#cc0033}.head.blue{background:#0055ff}.head.orange{background:#ff6600}.head.lblue{background:#0099ff;color:#000}.head.black{background:#222}.head.purple{background:#6600cc}
-.body{flex:1;background:rgba(0,255,136,0.04)}
+.body{flex:1;background:rgba(0,255,136,0.04);position:relative}
 .big{grid-row:span 2}
+/* HAPA NDIPO NIMEONGEZA COVER */
+.big .body{
+background: url('cover.jpg') center/cover no-repeat;
+background-color:#000;
+}
+.big .body::after{
+content:"LIVE • MBAPPE VS ROGERS";
+position:absolute;bottom:6px;left:6px;right:6px;
+background:rgba(204,0,51,0.9);color:#fff;
+font-size:8px;font-weight:900;
+padding:4px 6px;border-radius:3px;text-align:center;
+letter-spacing:0.5px;
+}
 /* CAREER NDANI */
 #careerPage{display:none;flex:1;flex-direction:column;background:#061a2a}
 .careerWrap{flex:1;padding:6px;display:grid;grid-template-columns:1fr 1fr;gap:6px}
