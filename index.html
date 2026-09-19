@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>MTAANI #31 - MOJA TU</title>
+<title>MTAANI #31 - MPIRA TU</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{width:100%;height:100%;overflow:hidden;background:#020d06}
@@ -15,44 +15,51 @@ html,body{width:100%;height:100%;overflow:hidden;background:#020d06}
 .coins div{border:1px solid #00ff88;padding:4px 8px;border-radius:5px;font-size:10px;background:#0a1a2a;color:#fff;font-weight:700}
 .wrap{flex:1;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;grid-template-rows:1.5fr 1fr;gap:5px;padding:5px;background:#061a2a}
 .card{border:1.8px solid #00ff88;border-radius:8px;overflow:hidden;background:#0a1a2a;display:flex;flex-direction:column;cursor:pointer}
-.head{padding:6px 8px;font-weight:900;font-size:11px;display:flex;justify-content:space-between;flex-shrink:0;color:#fff}
+.head{padding:6px 8px;font-weight:900;font-size:11px;display:flex;justify-content:space-between;flex-shrink:0;color:#fff; z-index:2;}
 .head.red{background:#cc0033}.head.blue{background:#0055ff}.head.orange{background:#ff6600}.head.lblue{background:#0099ff;color:#000}.head.black{background:#222}.head.purple{background:#6600cc}
-.body{flex:1;background:rgba(0,255,136,0.04);position:relative}
+.body{flex:1;position:relative; background-size:cover; background-position:center;}
 .big{grid-row:span 2}
-/* HAPA NDIPO NIMEONGEZA COVER */
-.big .body{
-background: url('cover.jpg') center/cover no-repeat;
-background-color:#000;
-}
+
+/* MPIRA TU - KILA BOX PICHA TOFAUTI YA MPIRA */
+.card:nth-child(1) .body{ background-image: url('https://images.unsplash.com/photo-1579952363873-27f3bfad9f55?q=80&w=800'); } /* CAREER - Mbappe vs Rogers */
+.card:nth-child(2) .body{ background-image: url('https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?q=80&w=800'); } /* DRAFT - mpira uwanjani */
+.card:nth-child(3) .body{ background-image: url('https://images.unsplash.com/photo-1522778119026-d647f0596c20?q=80&w=800'); } /* LIVE - stadium */
+.card:nth-child(4) .body{ background-image: url('https://images.unsplash.com/photo-1511886921261-899e06bfed53?q=80&w=800'); } /* CLANS - team */
+.card:nth-child(5) .body{ background-image: url('https://images.unsplash.com/photo-1482939651122-54c0b72d35ea?q=80&w=800'); } /* TEAM - formation */
+.card:nth-child(6) .body{ background-image: url('https://images.unsplash.com/photo-1553778263-73a83bab9b0c?q=80&w=800'); } /* TRANSFERS - mpira */
+.card:nth-child(7) .body{ background-image: url('https://images.unsplash.com/photo-1543351611-58f69d7c1781?q=80&w=800'); } /* MY CLUB - uwanja */
+
+.body::after{content:"";position:absolute;bottom:0;left:0;right:0;height:50%;background:linear-gradient(to top, rgba(0,0,0,0.9), transparent);}
 .big .body::after{
-content:"LIVE • MBAPPE VS ROGERS";
-position:absolute;bottom:6px;left:6px;right:6px;
-background:rgba(204,0,51,0.9);color:#fff;
-font-size:8px;font-weight:900;
-padding:4px 6px;border-radius:3px;text-align:center;
-letter-spacing:0.5px;
+content:"LIVE • MBAPPE VS ROGERS";position:absolute;bottom:6px;left:6px;right:6px;
+background:rgba(204,0,51,0.9);color:#fff;font-size:9px;font-weight:900;
+padding:5px;border-radius:4px;text-align:center;letter-spacing:0.5px; z-index:2; height:auto;
 }
-/* CAREER NDANI */
+
 #careerPage{display:none;flex:1;flex-direction:column;background:#061a2a}
 .careerWrap{flex:1;padding:6px;display:grid;grid-template-columns:1fr 1fr;gap:6px}
-.cItem{border:1.8px solid #00ff88;border-radius:10px;background:#0a1a2a;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px}
-.cItem b{color:#00ff88;font-size:12px}
+.cItem{border:1.8px solid #00ff88;border-radius:10px;background:#0a1a2a;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px; background-size:cover; background-position:center; position:relative; overflow:hidden;}
+.cItem b{background:rgba(0,0,0,0.8); padding:5px 10px; border-radius:5px; z-index:2; color:#00ff88; font-size:11px;}
+.cItem:nth-child(1){background-image:url('https://images.unsplash.com/photo-1577223522660-65d87e4be2d5?q=80&w=600')} /* FIXTURES */
+.cItem:nth-child(2){background-image:url('https://images.unsplash.com/photo-1482939651122-54c0b72d35ea?q=80&w=600')} /* TABLE */
+.cItem:nth-child(3){background-image:url('https://images.unsplash.com/photo-1511886921261-899e06bfed53?q=80&w=600')} /* MY TEAM */
+.cItem:nth-child(4){background-image:url('https://images.unsplash.com/photo-1522778119026-d647f0596c20?q=80&w=600')} /* RESULTS */
+.cItem:nth-child(5){background-image:url('https://images.unsplash.com/photo-1556056504-5c7696c4c28d?q=80&w=600')} /* STATS */
+.cItem:nth-child(6){background-image:url('https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?q=80&w=600'); border-color:#ff6600}
+.cItem:nth-child(6) b{color:#ff6600}
 </style>
 </head>
 <body>
 <div id="rotated">
-
 <div class="top" id="topMenu">
 <div style="display:flex;gap:6px;align-items:center"><div class="free">FREE COINS</div><div class="title"><span>MTAANI #31</span></div></div>
 <div class="coins"><div>💎 132</div><div>🪙 358</div></div>
 </div>
-
 <div class="top" id="topCareer" style="display:none">
 <div class="free" onclick="fungaCareer()">← RUDI</div>
 <div class="title"><span>CAREER - NDANI</span></div>
 <div class="coins"><div>💎 132 | 🪙 358</div></div>
 </div>
-
 <div class="wrap" id="menuPage">
 <div class="card big" onclick="funguaCareer()"><div class="head red">CAREER MATCHES »</div><div class="body"></div></div>
 <div class="card"><div class="head orange">OSMALIPA DRAFT »</div><div class="body"></div></div>
@@ -62,7 +69,6 @@ letter-spacing:0.5px;
 <div class="card"><div class="head orange">TRANSFERS »</div><div class="body"></div></div>
 <div class="card"><div class="head purple">MY CLUB »</div><div class="body"></div></div>
 </div>
-
 <div id="careerPage">
 <div class="careerWrap">
 <div class="cItem"><b>📅 FIXTURES</b></div>
@@ -70,12 +76,10 @@ letter-spacing:0.5px;
 <div class="cItem"><b>👥 MY TEAM</b></div>
 <div class="cItem"><b>🏆 RESULTS</b></div>
 <div class="cItem"><b>📈 STATS</b></div>
-<div class="cItem" style="border-color:#ff6600"><b style="color:#ff6600">⚽ CHEZA MECHI</b></div>
+<div class="cItem"><b>⚽ CHEZA MECHI</b></div>
 </div>
 </div>
-
 </div>
-
 <script>
 function funguaCareer(){
 document.getElementById('menuPage').style.display='none';
